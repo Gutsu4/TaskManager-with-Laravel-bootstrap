@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -26,5 +28,11 @@ class UserController extends Controller
         ]);
 
         return redirect() -> route('user.home');
+    }
+    public function home(){
+        $id = Auth::user()->id;
+        $tasks = Task::where([['status','=','未完了'],['user_id','=',$id]])->get();
+        $name = Auth::user()->name;
+        return view('user.home',compact('tasks','name'));
     }
 }

@@ -10,4 +10,8 @@ class User extends Authenticatable
 {
     protected $fillable = ["name","email","password"];
     use HasFactory;
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
 }

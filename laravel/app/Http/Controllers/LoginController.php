@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +27,4 @@ class LoginController extends Controller
         ]);
     }
 
-    public function home(){
-        return view('user.home',['name'=>Auth::user()->name]);
-    }
 }
