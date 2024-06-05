@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+if (env('APP_ENV') == 'production') {
+    \Illuminate\Support\Facades\URL::forceScheme('https');
+}
+
 Route::get('/',[LoginController::class,'index'])->name('show');
 
 Route::post('login',[LoginController::class,'login'])->name('login');
