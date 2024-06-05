@@ -41,4 +41,6 @@ Route::post('taskReset/',[TaskController::class,'reset'])->name('task.reset');
 
 Route::get('taskEdit/{id}',[TaskController::class,'edit'])->name('task.edit');
 
+
+
 Route::post('taskEdit/{id}',[TaskController::class,'editStore'])->name('task.edit.store');
